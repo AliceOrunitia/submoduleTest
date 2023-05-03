@@ -2,6 +2,8 @@ name: Send Webhook
 
 on:
   push:
+    paths:
+      - 'please/**'
 
 jobs:
   send_webhook:
