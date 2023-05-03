@@ -2,13 +2,12 @@ name: Send Webhook
 
 on:
   push:
-    paths:
-      - 'test-files/**'
+    branches:
+      - main
 
 jobs:
   send_webhook:
     runs-on: ubuntu-latest
-    needs: push
     steps:
       - name: Send repository_dispatch event
         run: |
