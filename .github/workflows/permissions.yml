@@ -11,10 +11,10 @@ jobs:
     steps:
       - name: Send repository_dispatch event
         run: |
-          curl -XPOST -H "Authorization: bearer ${{ secrets.GITHUB_TOKEN }}" \
+          curl -XPOST -H "Authorization: bearer ${{ secrets.WEBHOOK }}" \
             -H "Accept: application/vnd.github.everest-preview+json" \
             -H "Content-Type: application/json" \
             --data '{"event_type": "subdir_changed", "client_payload": {"test-files_changed": "test-files"}}' \
             https://api.github.com/repos/AliceOrunitia/fileTests/dispatches
         env:
-          PAT: ${{ secrets.GITHUB_TOKEN }}
+          WEBHOOK: ${{ secrets.WEBHOOK }}
